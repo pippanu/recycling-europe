@@ -1,0 +1,336 @@
+<ul id="breadcrumb">
+  <li class="element highlight">{$additional_text_1}</li>
+	<li class="element">{$category_tree}</li>
+</ul>
+
+<h1 class="listing_title" style="display: inline;">{$title} <span class="id">{$classified_id_label} {$classified_id}</span></h1>
+
+<div class="action_buttons" style="display: inline;">
+	{if $can_edit}
+		<a href="{$classifieds_file_name}?a=cart&amp;action=new&amp;main_type=listing_edit&amp;listing_id={$classified_id}"><img src="{external file='images/buttons/listing_edit.gif'}" alt="" /></a>
+	{/if}
+	{if $can_delete}
+		<a onclick="if (!confirm('Are you sure you want to delete this?')) return false;" href="{$classifieds_file_name}?a=99&amp;b={$classified_id}"><img src="{external file='images/buttons/listing_delete.gif'}" alt="" /></a>
+	{/if}
+	{foreach from=$addonActionButtons item=btn}
+		{$btn}
+	{/foreach}
+</div>
+<div class="clr"></div>
+<br />
+
+<!-- # START LEAD PHOTO COLUMN -->
+<div id="lead_photo_column">
+	{$lead_picture}
+	
+	<div class="content_box">
+		<div class="row_even" style="text-align: center;">
+			<strong>{$viewed_count_label}</strong> {$viewed_count}
+		</div>
+	</div>
+	<br />
+	<div class="content_box">
+		<h2 class="title">{$additional_text_6}</h2>
+		
+		<ul class="option_list">
+			<li>{$notify_friend_link}</li>
+			<li>{$favorites_link}</li>
+			<!--<li>{$print_friendly_link}</li>-->
+			<li>{$mapping_link}</li>
+			<li>{$vote_on_ad_link}</li>
+			<li>{$show_ad_vote_comments_link}</li>
+			<li><a href="http://www.worldscrap.cn/bbs/simple/index.php?f1_2.html" style="background-color:black;color:white;" onclick="window.open (this.href, 'child', 'height=960,width=1024'); return false">website with BLACKLISTED Companies</a>
+			</li>
+			<li><a href="mailto:admin@YourDomain.com?subject={$additional_text_8}%20{$classified_id}&amp;body={$additional_text_9}">{$additional_text_10}</a></li>
+		</ul>
+	</div>
+</div>
+<!-- # END LEAD PHOTO COLUMN -->
+
+<!-- # START SELLER COLUMN -->
+<div id="seller_column">
+	<div class="content_box">
+		<h1 class="title">{$seller_label}</h1>
+		{$verified_account}<br />
+		<h3 class="seller_username">Company ID({$seller_id}) <br /> 
+		Company Documents ({$seller_optional_6}) <br /> 
+		<a href="{$seller_optional_5}">Film of The Company ({$seller_optional_4})</a><br />
+		Contact Person: {$seller_first_name} {$seller_last_name}<br />
+		{$seller_rating_label}<br /></h3>
+		{$seller_rating}<br />
+		<a href="http://www.worldscrap.cn/bbs/simple/index.php?f1_2.html" style="color:black;" onclick="window.open (this.href, 'child', 'height=450,width=800'); return false">Website with BLACKLISTED Companies</a>
+		<!--{$seller_rating_scale_explanation}-->
+		
+		<ul class="vertical_list">
+			<li class="row_odd">Address: {$seller_address}, {$seller_zip} {$seller_city}</li>
+			<li class="row_even">Country: {$seller_country}</li>
+			<li class="row_odd"><img src="/geo_templates/my_templates/external/images/TELEPHONE_.jpg" alt="Seller Phone" />{$phone_label}: {$seller_phone}</li>
+			<!--<li class="row_even">{$additional_text_17} {$member_since}--></li>
+			<li><a href="/index.php?a=ap&addon=storefront&page=home&store={$seller_id}&p=home" style="color:red;">Company professional page</a></li>
+			{if $seller_optional_7}
+				<li><img src="{$seller_optional_7}" alt="Company Logo" width="190"/></li>
+			{/if}
+			<li class="button">{$message_to_seller_link}</li>
+			<!--{if $public_email}
+			<li class="row_odd">{$public_email_label}<a href="mailto:{$public_email}">{$public_email}</a></li>
+			{/if}-->
+		</ul>
+	</div>
+	<br />
+	{if $payment_options}
+		<div class="content_box">
+			<h1 class="title">{$payment_options_label}</h1>
+			<p class="main_text">{$payment_options}</p>
+		</div>
+	{/if}
+</div>
+
+<!-- END SELLER COLUMN -->
+
+
+<!-- # START INFO COLUMN -->
+
+<div id="listing_info_column">
+
+<div class="content_box" id="description">
+	<h1 class="title">{$description_label}</h1>
+	
+	<div class="box_pad">
+		{$description}
+	</div>
+</div>
+
+<br />
+
+
+
+	{* START OPTIONAL FIELDS *}
+
+<div id="half_column_right">
+	<div class="content_box">
+		<h2 class="title">{$additional_text_5}</h2>
+		
+		<ul id="optional_fields">
+			{if $optional_field_1}
+				<li class="row_even"><label>{$optional_field_1_label}</label>{$optional_field_1}</li>
+			{/if}
+			{if $optional_field_2}
+				<li class="row_odd"><label>{$optional_field_2_label}</label>{$optional_field_2}</li>
+			{/if}
+			{if $optional_field_3}
+				<li class="row_even"><label>{$optional_field_3_label}</label>{$optional_field_3}</li>
+			{/if}
+			{if $optional_field_4}
+				<li class="row_odd"><label>{$optional_field_4_label}</label>{$optional_field_4}</li>
+			{/if}
+			{if $optional_field_5}
+				<li class="row_even"><label>{$optional_field_5_label}</label>{$optional_field_5}</li>
+			{/if}
+			{if $optional_field_6}
+				<li class="row_odd"><label>{$optional_field_6_label}</label>{$optional_field_6}</li>
+			{/if}
+			{if $optional_field_7}
+				<li class="row_even"><label>{$optional_field_7_label}</label>{$optional_field_7}</li>
+			{/if}
+			{if $optional_field_8}
+				<li class="row_odd"><label>{$optional_field_8_label}</label>{$optional_field_8}</li>
+			{/if}
+			{if $optional_field_9}
+				<li class="row_even"><label>{$optional_field_9_label}</label>{$optional_field_9}</li>
+			{/if}
+			{if $optional_field_10}
+				<li class="row_odd"><label>{$optional_field_10_label}</label>{$optional_field_10}</li>
+			{/if}
+			{if $optional_field_11}
+				<li class="row_even"><label>{$optional_field_11_label}</label>{$optional_field_11}</li>
+			{/if}
+			{if $optional_field_12}
+				<li class="row_odd"><label>{$optional_field_12_label}</label>{$optional_field_12}</li>
+			{/if}
+			{if $optional_field_13}
+				<li class="row_even"><label>{$optional_field_13_label}</label>{$optional_field_13}</li>
+			{/if}
+			{if $optional_field_14}
+				<li class="row_odd"><label>{$optional_field_14_label}</label>{$optional_field_14}</li>
+			{/if}
+			{if $optional_field_15}
+				<li class="row_even"><label>{$optional_field_15_label}</label>{$optional_field_15}</li>
+			{/if}
+			{if $optional_field_16}
+				<li class="row_odd"><label>{$optional_field_16_label}</label>{$optional_field_16}</li>
+			{/if}
+			{if $optional_field_17}
+				<li class="row_even"><label>{$optional_field_17_label}</label>{$optional_field_17}</li>
+			{/if}
+			{if $optional_field_18}
+				<li class="row_odd"><label>{$optional_field_18_label}</label>{$optional_field_18}</li>
+			{/if}
+			{if $optional_field_19}
+				<li class="row_even"><label>{$optional_field_19_label}</label>{$optional_field_19}</li>
+			{/if}
+			<li></li>
+		</ul>
+		
+		<div class="clr"></div>
+	</div>
+</div>
+
+{* END OPTIONAL FIELDS *}
+	
+	<div class="content_box">
+		<h2 class="title">{$additional_text_3}</h2>
+		
+		<ul class="info">
+			
+			<li class="label price">{$price_label}</li>
+			<li class="value price">{$price}</li>
+			
+			
+			{if $optional_field_20}
+				<li class="label">{$optional_field_20_label}</li>
+				<li class="value">{$optional_field_20}</li>
+			{/if}
+			
+			<li class="label">{$date_started_label}</li>
+			<li class="value">{$date_started}</li>
+			
+			<li class="label">{$city_label}</li>
+			<li class="value">{$city_data}</li>
+			
+			<li class="label">{$state_label}</li>
+			<li class="value">{$state_data}</li>
+			
+			<li class="label">{$zip_label}</li>
+			<li class="value">{$zip_data}</li>
+			
+			<li class="label">{$country_label}</li>
+			<li class="value">{$country_data}</li>
+			
+			<li class="label">{$phone_label}</li>
+			<li class="value">{$phone_data}</li>
+			
+			<li class="label">{$phone2_label}</li>
+			<li class="value">{$phone2_data}</li>
+			
+			<li class="label">{$fax_label}</li>
+			<li class="value">{$fax_data}</li>
+			
+			{if $listing_tags_links}
+				<li class="label">{$listing_tags_label}</li>
+				<li class="value">{$listing_tags_links}</li>
+			{/if}
+		</ul>
+		
+		<div class="clr"><br /></div>
+		
+		<div class="row_even highlight_links bold">
+			<ul class="horizontal_list">
+				<li>{$url_link_1}</li>
+				<li>{$url_link_2}</li>
+				<li>{$url_link_3}</li>
+			</ul>
+			<div class="clr"></div>
+		</div>
+	</div>
+	<br />
+	<!--{addon author='geo_addons' addon='twitter_feed' tag='show_feed'}-->
+</div>
+
+<!-- END INFO COLUMN -->
+
+<div class="clr"><br /></div>
+
+{if $offsite_videos_block}
+	<div class="content_box" id="listing_offsite_videos">
+		<h1 class="title">{$offsite_videos_title}</h1>
+		
+		{$offsite_videos_block}
+	</div>
+	<div class="clr"><br /></div>
+{/if}
+
+{if $image_block}
+	<div class="content_box" id="listing_photos">
+		<h2 class="title">{$additional_text_4} <span class="mini_text">( &raquo; {$full_images_link} )</span></h2>
+		
+		{$image_block}
+	</div>
+{/if}
+
+<br />
+
+
+{* START CHECKBOXES *}
+
+{if $extra_checkbox_name}
+<div class="content_box">
+	<h2 class="title">{$additional_text_11}</h2>
+	
+	<div id="checkbox">
+		{$extra_checkbox_name}
+	</div>
+	
+	<div class="clr"></div>
+</div>
+
+<br />
+{/if}
+
+{* END CHECKBOXES *}
+
+{* START EXTRA QUESTIONS *}
+
+<div id="half_column_left">
+	<div class="content_box">
+		<h2 class="title">{$additional_text_5}</h2>
+		
+		{if $extra_question_value}
+			<div id="extra_questions">
+				<div class="label">
+					{$extra_question_name}
+				</div>
+				<div class="data">
+					{$extra_question_value}
+				</div>
+			</div>
+		{/if}
+	</div>
+</div>
+{* END EXTRA QUESTIONS *}
+
+
+
+<div class="clr"></div>
+
+<br />
+<div class="content_box">
+	<h1 class="title">{$publicQuestionsLabel}{if $logged_in} - <a href="{$classifieds_file_name}?a=13&amp;b={$classified_id}">{$askAQuestionText}</a>{/if}</h1>
+	{if $publicQuestions}
+		{foreach from=$publicQuestions item=q key=question_id}
+			{if $q.answer !== false}
+				<div class="publicQuestions {cycle values='row_odd,row_even'}">
+					<div class="question">
+						<span class="public_question_asker_username"><a href="{$classifieds_file_name}?a=6&amp;b={$q.asker_id}">{$q.asker}</a></span> 
+						<span class="public_question_asker_timestamp">({$q.time})</span>
+						{if $can_delete}<a onclick="if (!confirm('Are you sure you want to remove this question and its answer?')) return false;" href="{$classifieds_file_name}?a=4&amp;b=8&amp;c=2&amp;d={$question_id}&amp;public=1"><img src="{external file='images/buttons/listing_delete.gif'}" alt="" /></a> {/if}
+						<br /> 
+						{$q.question}
+					</div>
+					<div class="answer">
+						{$q.answer}
+					</div>
+				</div>
+			{/if}
+		{/foreach}
+	{else}
+		<div class="box_pad">{$noPublicQuestions}</div>
+	{/if}
+</div>
+
+
+<div class="center">
+	{$previous_ad_link}
+	{$next_ad_link}
+</div>
+
+
